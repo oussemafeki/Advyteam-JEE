@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtmll/DTD/xhtmll-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="title">
+		<title>Evals</title>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<!-- top navbar-->
+
+		<aside class="offsidebar d-none"> <!-- START Off Sidebar (right)-->
+		<nav>
+	
+	<h:panelGroup columns="2">
+<h:panelGroup columns="2"><h:form>
+
+
+<br></br><br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+
+
+</h:form></h:panelGroup>
+
+<h:form>
+
+</h:form>
+</h:panelGroup>
+
+
+	
+		</nav><!-- END Off Sidebar (right)--> </aside>
+		<!-- Main section-->
+		<section class="section-container"> <!-- Page content-->
+		<style type="text/css">           
+            .top {
+                filter:alpha(opacity=80);
+                opacity:0.8;
+                padding:50px 0 0 50px;
+        z-index: 1000;
+            }
+        </style>
+     
+ 
+ 
+ 
+
+           <div class="col-xl-4 col-lg-6">
+                  <!-- START card-->
+                  <centre>
+                  <h:form>
+                  <div class="alert alert-success" role="alert"><strong>Well done , </strong> 
+                 Welcome <a Style="color :#000000"> <h:outputText value="#{loginBean.emp.nom}"/>     <h:outputText value=" #{loginBean.emp.prenom}"/> </a> to the home page of ADVYTEAM Human Ressource !</div>
+                  </h:form>
+                       </centre>
+               </div>
+               
+             
+                   
+		
+		</section>
+		   
+		<!-- Page footer-->
+		<footer class="footer-container"> <span>&copy; 2019 -
+			Advyteam</span></footer>
+
+	</ui:define>
+
+
+</ui:composition>

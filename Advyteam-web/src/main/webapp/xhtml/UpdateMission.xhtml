@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtmll/DTD/xhtmll-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/template/template.xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+	<ui:define name="title">
+		<title>Home</title>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<!-- top navbar-->
+
+		<aside class="offsidebar d-none"> <!-- START Off Sidebar (right)-->
+		<nav> <h:panelGroup role="tabpanel">
+			<!-- Nav tabs-->
+			<ul class="nav nav-tabs nav-justified" role="tablist">
+				<li class="nav-item" role="presentation"><a
+					class="nav-link active" href="#app-settings"
+					aria-controls="app-settings" role="tab" data-toggle="tab"><em
+						class="icon-equalizer fa-lg"></em></a></li>
+				<li class="nav-item" role="presentation"><a class="nav-link"
+					href="#app-chat" aria-controls="app-chat" role="tab"
+					data-toggle="tab"><em class="icon-user fa-lg"></em></a></li>
+			</ul>
+
+		</h:panelGroup> </nav><!-- END Off Sidebar (right)--> </aside>
+		<!-- Main section-->
+		<ui:insert  class="section-container">
+			<h:outputLabel value="#{missionBean.mission.id}"/>
+			<!-- Page content-->
+			<h:form   styleClass="table table-bordered table-hover"  method="get"
+				action="http://themicon.co/">
+				<p:fieldset>
+				
+					<h:panelGroup class="form-group row">
+						<label class="col-md-3 col-form-label">Name</label>
+						<h:panelGroup class="col-md-5">
+							<h:inputText class="form-control"
+								value="#{missionBean.mission.nomMission}" type="text" />
+						</h:panelGroup>
+					</h:panelGroup>
+				</p:fieldset>
+				<p:fieldset>
+					<h:panelGroup class="form-group row">
+						<label class="col-md-3 col-form-label">Description</label>
+						<h:panelGroup class="col-md-5">
+							<h:inputText class="form-control"
+								value="#{missionBean.mission.description}" type="text" />
+						</h:panelGroup>
+					</h:panelGroup>
+				</p:fieldset>
+				<p:fieldset>
+					<h:panelGroup class="form-group row">
+						<label class="col-md-3 col-form-label">Type</label>
+						<h:panelGroup class="col-md-5">
+							<h:inputText class="form-control" value="#{missionBean.mission.type}"
+								type="text" />
+						</h:panelGroup>
+					</h:panelGroup>
+				</p:fieldset>
+				<p:fieldset>
+					<h:panelGroup class="form-group row">
+						<label class="col-md-3 col-form-label">Address</label>
+						<h:panelGroup class="col-md-5">
+							<h:inputText class="form-control" value="#{missionBean.mission.adresse}"
+								type="text" />
+						</h:panelGroup>
+					</h:panelGroup>
+				</p:fieldset>
+				<p:fieldset>
+					<h:panelGroup class="form-group row">
+						<label class="col-md-3 col-form-label">Begining Date</label>
+						<h:panelGroup class="col-md-5">
+							<h:inputText  value="#{missionBean.mission.dateDeb}" size="20"
+								required="true" label="Receipt Date">
+
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</h:inputText>
+						</h:panelGroup>
+					</h:panelGroup>
+				</p:fieldset>
+
+<p:fieldset>
+					<h:panelGroup class="form-group row">
+						<label class="col-md-3 col-form-label">Endind Date</label>
+						<h:panelGroup class="col-md-5">
+							<h:inputText  value="#{missionBean.mission.dateDeb}" size="20"
+								required="true" label=" Date">
+
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</h:inputText>
+						</h:panelGroup>
+					</h:panelGroup>
+				</p:fieldset>
+				<p:fieldset class="last-child">
+					<h:panelGroup class="form-group row">
+						<label class="col-md-3 col-form-label">Project</label>
+						<h:panelGroup class="col-md-5">
+							<h:selectOneMenu value="#{missionBean.nomProj}">
+								<f:selectItem itemLabel="Choose" itemValue="" />
+								<f:selectItems value="#{missionBean.all_Projects}" />
+							</h:selectOneMenu>
+						</h:panelGroup>
+					</h:panelGroup>
+				</p:fieldset>
+				
+
+
+							<h:commandButton styleClass="btn" value="Update" action="#{missionBean.UpdateMission}"/>
+
+
+			</h:form>
+		</ui:insert>
+		<!-- Page footer-->
+
+	</ui:define>
+
+
+</ui:composition>

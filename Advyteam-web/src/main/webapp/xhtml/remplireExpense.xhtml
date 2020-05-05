@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtmll/DTD/xhtmll-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/template/template.xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+
+	<ui:define name="title">
+		<title>Home</title>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<!-- top navbar-->
+
+		<aside class="offsidebar d-none"> <!-- START Off Sidebar (right)-->
+		<nav> <h:panelGroup role="tabpanel">
+			<!-- Nav tabs-->
+			<ul class="nav nav-tabs nav-justified" role="tablist">
+				<li class="nav-item" role="presentation"><a
+					class="nav-link active" href="#app-settings"
+					aria-controls="app-settings" role="tab" data-toggle="tab"><em
+						class="icon-equalizer fa-lg"></em></a></li>
+				<li class="nav-item" role="presentation"><a class="nav-link"
+					href="#app-chat" aria-controls="app-chat" role="tab"
+					data-toggle="tab"><em class="icon-user fa-lg"></em></a></li>
+			</ul>
+
+		</h:panelGroup> </nav><!-- END Off Sidebar (right)--> </aside>
+		<!-- Main section-->
+
+		<ui:insert class="section-container">
+			<!-- Page content-->
+			<h:panelGroup class="content-wrapper">
+				
+
+				
+				<h:panelGroup class="card">
+					<h:panelGroup class="card-header">Expenses Form</h:panelGroup>
+					<h:form>
+					<table class="table table-bordered table-sm">
+						<tr>
+
+							<th>#</th>
+							<th>title</th>
+							<th>distance</th>
+							<th>prix_transport</th>
+							<th>prix_hebergement</th>
+							<th>prix_resto</th>
+							<th>autres_frais</th>
+							<th></th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td><h:inputText value="#{missionBean.title}"></h:inputText></td>
+							<td><h:inputText value="#{missionBean.distance}"></h:inputText></td>
+							<td><h:inputText value="#{missionBean.prix_transport}"></h:inputText></td>
+							<td><h:inputText value="#{missionBean.prix_hebergement}"></h:inputText></td>
+							<td><h:inputText value="#{missionBean.prix_resto}"></h:inputText></td>
+							<td><h:inputText value="#{missionBean.autres_frais}"></h:inputText></td>
+							<td><h:commandButton id="btn_Add" styleClass="btn" value="add"
+					action="#{missionBean.addExpenses(missionBean.mission)}" /></td>
+
+						</tr>
+
+					</table>
+					</h:form>
+					
+				</h:panelGroup>
+			</h:panelGroup>
+					
+				
+		</ui:insert>
+		<!-- Page footer-->
+
+	</ui:define>
+	<h:outputScript>
+
+	</h:outputScript>
+	<h:outputScript library="js"
+		name="vendor/modernizr/modernizr.custom.js"></h:outputScript>
+	<!-- STORAGE API-->
+	<h:outputScript library="js" name="vendor/js-storage/js.storage.js"></h:outputScript>
+	<!-- SCREENFULL-->
+	<h:outputScript library="js"
+		name="vendor/screenfull/dist/screenfull.js"></h:outputScript>
+	<!-- i18next-->
+	<h:outputScript library="js" name="vendor/i18next/i18next.js"></h:outputScript>
+	<h:outputScript library="js"
+		name="vendor/i18next-xhr-backend/i18nextXHRBackend.js"></h:outputScript>
+	<h:outputScript library="js" name="vendor/jquery/dist/jquery.js"></h:outputScript>
+	<h:outputScript library="js" name="vendor/popper.js/dist/umd/popper.js"></h:outputScript>
+	<h:outputScript library="js"
+		name="vendor/bootstrap/dist/js/bootstrap.js"></h:outputScript>
+	<!-- =============== PAGE VENDOR h:outputScriptS ===============-->
+	<!-- XEDITABLE-->
+	<h:outputScript library="js"
+		name="vendor/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js"></h:outputScript>
+	<!-- MOMENT JS-->
+	<h:outputScript library="js"
+		name="vendor/moment/min/moment-with-locales.js"></h:outputScript>
+	<!-- =============== APP h:outputScriptS ===============-->
+	<h:outputScript library="js" name="js/app.js"></h:outputScript>
+
+
+</ui:composition>

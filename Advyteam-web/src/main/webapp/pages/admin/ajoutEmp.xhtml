@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:f="http://xmlns.jcp.org/jsf/core"
+	   xmlns:h="http://xmlns.jcp.org/jsf/html"
+	   xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	   xmlns:jsf="http://xmlns.jcp.org/jsf"
+	   xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	   xmlns:p="http://primefaces.org/ui">
+	   
+	   
+<h:panelGroup columns="2"><h:form><table>
+<tr><td><h:outputText value="Login (Email)"></h:outputText></td><td><h:inputText
+value="#{loginBean.login}"></h:inputText></td></tr>
+<tr><td><h:outputText value="Mot de Passe"></h:outputText></td>
+<td><h:inputSecret value="#{loginBean.password}"></h:inputSecret></td></tr>
+<tr><td><h:outputText value="Nom"></h:outputText></td>
+<td><h:inputText value="#{loginBean.nom}"></h:inputText></td></tr>
+<tr><td><h:outputText value="Prenom"></h:outputText></td>
+<td><h:inputText value="#{loginBean.prenom}"></h:inputText></td></tr>
+<tr><td><h:outputText value="Actif / Inactif"></h:outputText></td>
+<td><h:selectBooleanCheckbox value="#{loginBean.isActif}"></h:selectBooleanCheckbox></td></tr>
+
+
+
+<tr><td><h:outputText value="Role"></h:outputText></td>
+<td><h:selectOneMenu value="#{loginBean.role}">
+<f:selectItem itemLabel="Choisir Role" itemValue=""/>
+<f:selectItems value="#{data.roles}" />
+</h:selectOneMenu></td></tr>
+
+
+<tr><td colspan="2"> <h:commandButton value="Ajouter Employé"
+action="#{loginBean.addEmploye()}" /></td></tr>
+
+</table>
+
+
+
+</h:form></h:panelGroup>
+
+
+</html>

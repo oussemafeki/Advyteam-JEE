@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtmll/DTD/xhtmll-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/template/template.xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+
+	<ui:define name="title">
+		<title>Home</title>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<!-- top navbar-->
+
+		<aside class="offsidebar d-none"> <!-- START Off Sidebar (right)-->
+		<!-- END Off Sidebar (right)--> </aside>
+		<!-- Main section-->
+
+		<ui:insert class="section-container">
+			<!-- Page content-->
+
+
+			<h:form>
+			<h:column>		<p:commandButton class="btn btn-sm btn-info "
+							 icon="fa fa-fw fa-plus" styleClass="btn" action="#{missionBean.backToAdd()}" value="Back to Add" />
+					</h:column>
+				<h:dataTable   styleClass="table table-bordered table-hover" value="#{missionBean.missions}" var="mission">
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Name" />
+						</f:facet>
+						<h:outputText value="#{mission.nomMission}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Description" />
+						</f:facet>
+						<h:outputText value="#{mission.description}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Start Date" />
+						</f:facet>
+						<h:outputText value="#{mission.dateDeb}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="End Date" />
+						</f:facet>
+						<h:outputText value="#{mission.dateFin}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Adress" />
+						</f:facet>
+						<h:outputText value="#{mission.adresse}" />
+					</h:column>
+					<h:column></h:column>
+					<h:column>
+						
+						<p:commandButton action="#{missionBean.addRequest(mission)}" class="btn btn-sm btn-success command-success"
+							value="Request" icon="fa fa-fw fa-check"  />
+
+					</h:column>
+					
+				</h:dataTable>
+			</h:form>
+
+
+		</ui:insert>
+		<!-- Page footer-->
+
+
+	</ui:define>
+
+
+</ui:composition>

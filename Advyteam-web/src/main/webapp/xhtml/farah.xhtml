@@ -1,0 +1,53 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template/template.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+	<ui:define name="content">
+		<h:form>
+		 	<p:commandButton rel="alternate" value="add project" hreflang="en-us"
+				action="#{projectBean.goToAddPage}"></p:commandButton> 
+
+			<p:dataTable id="projectsDataTable" var="project"
+				value="#{projectBean.projects}" paginator="true" rows="10"
+				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10">
+
+
+				<p:column headerText="titre">
+					<h:outputText value="#{project.title}" />
+				</p:column>
+
+				<p:column headerText="Description">
+					<h:outputText value="#{project.description}" />
+				</p:column>
+				<p:column headerText="commands">
+
+					<p:commandButton 
+					 ajax="true" update="projectsDataTable" icon="fa fa-fw fa-trash" style="background-color : #d11a2a !important;"
+						action="#{projectBean.removeProject(project.id)}" value="Delete">
+					</p:commandButton>
+
+					<p:commandButton 
+					 ajax="true" update="projectsDataTable" icon="fa fa-fw fa-align-justify" style="background-color : #ffc107 !important;"
+						action="#{projectBean.goToDetails(project)}" value="Détails">
+					</p:commandButton>
+					<p:commandButton 
+					 ajax="true" update="projectsDataTable" icon="fa fa-fw fa-align-justify"
+						action="#{projectBean.updateProject(project)}" value="update">
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+
+
+		</h:form>
+
+
+		<!-- naviger dune page a une autre  button delete  -->
+	</ui:define>
+</ui:composition>
+
+
+

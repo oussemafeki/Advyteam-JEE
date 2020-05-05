@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:f="http://xmlns.jcp.org/jsf/core"
+	   xmlns:h="http://xmlns.jcp.org/jsf/html"
+	   xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	   xmlns:jsf="http://xmlns.jcp.org/jsf"
+	   xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	   xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+	<h:outputStylesheet library="css" name="csslogin.css" />
+<link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/csslogin.css" />
+	<title>Login ADVteam</title></h:head>
+	<h:body style="background: #9cd8ff !important;	" >
+		<div style="margin-top: 80px;
+  margin-bottom: 5	0px;">
+	<h:form id="form" style="max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.1);  ">
+ <centre><img src="resources/advyteam.jpg" alt="Avatar" class="image" style="padding: 30px" /></centre>
+
+   
+      
+
+	<h:panelGrid columns="2">
+	<h2 class="form-signin-heading" style=" margin-bottom: 30px;"><a style=" color: #1E90FF;">login</a>    : </h2>
+	<h:inputText id="aa" label="bb"  value="#{loginBean.login}" requiredMessage="Please put your informations" required="true"  style=" position: relative;
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;
+		
+		}"/>
+ <h2 class="hh" id="hh"  style=" margin-bottom: 30px;"><a style=" color: #1E90FF;">password :</a></h2>
+	<h:inputSecret id="a" value="#{loginBean.password}"  requiredMessage="Please put your informations" required="true" style=" position: relative;
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;
+		
+		}" />
+		
+	<centre>	<h:message for="a"/>
+	<h:message for="aa"/>
+	<h:message for="btn"/></centre>
+	
+	<br />
+		<br />
+	<centre><h:commandButton id="btn" action="#{loginBean.doLogin()}" value="Login" style="width:  130px;
+  
+  height: 30px;
+  cursor: pointer;
+  background: #1E90FF;
+  border: 1px solid #91C9FF;
+  outline: none;
+  transition: 1s ease-in-out;
+   color: white;
+   font-weight: bold;"/></centre>
+   
+   
+   <br></br>
+   <br></br>
+   <br></br>
+   <centre><h:commandButton id="btnn" action="#{loginBean.sendmail()}" value="Password-forgotten" style="width: 130px;
+  
+  height: 32px;
+  cursor: pointer;
+  background: #1E90FF;
+  border: 1px solid #91C9FF;
+  outline: none;
+  transition: 1s ease-in-out;
+   color: white;
+   font-weight: bold;"/></centre>
+   
+	
+	</h:panelGrid>
+	
+	</h:form>
+	 </div>
+	 </h:body>
+</html>

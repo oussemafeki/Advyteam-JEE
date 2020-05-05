@@ -1,0 +1,56 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template/template.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+	<ui:define name="content">
+		<h:form>
+
+			<!-- 			<p:dataTable id="modulesDataTable" var="module" -->
+			<!-- 				value="#{detailProjetBean.modules}" > -->
+
+
+			<!-- 				<p:column headerText="Nom module"> -->
+			<!-- 					<h:outputText value="#{module.nomModule}" /> -->
+			<!-- 				</p:column> -->
+
+			<!-- 				<p:column headerText="Description"> -->
+			<!-- 					<h:outputText value="#{module.descriptionModule}" /> -->
+			<!-- 				</p:column> -->
+			<!-- 				<p:column headerText="commands"> -->
+
+
+			<!-- 				</p:column> -->
+			<!-- 			</p:dataTable> -->
+
+
+			<h:form>
+				<p:dataTable var="tacheDto" value="#{detailProjetBean.listeTachesDto}"
+					sortBy="#{tacheDto.nomModule}">
+					<p:column headerText="Nom Module" groupRow="true">
+						<h:outputText value="#{tacheDto.nomModule}" />
+					</p:column>
+					<p:column headerText="Nom tache">
+						<h:outputText value="#{tacheDto.nomTache}" />
+					</p:column>
+					<p:column headerText="Description tache">
+						<h:outputText value="#{tacheDto.descriptionTache}" />
+					</p:column>
+					<p:column headerText="Date estimée">
+						<h:outputText value="#{tacheDto.dateEstimer}" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+<h:link rel="alternate" hreflang="en-us"
+					outcome="/xhtml/farah.xhtml">All projects</h:link>
+		</h:form>
+
+
+		<!-- naviger dune page a une autre  button delete  -->
+	</ui:define>
+</ui:composition>
+
+
+

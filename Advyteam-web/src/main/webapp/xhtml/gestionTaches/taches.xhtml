@@ -1,0 +1,113 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template/template.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+	<ui:define name="content">
+		<style>
+.ui-panel .ui-panel-title {
+	color: #3498DB !important;
+	font-size: 15px !important;
+	background-color: transparent !important;
+	font-weight: 100 !important;
+}
+
+</style>
+
+
+		<script type="text/javascript">
+			function handleDrop(event, ui) {
+				var tacheInProgress = ui.draggable;
+
+				tacheInProgress.fadeOut('fast');
+			}
+		</script>
+		<h:form id="carForm" binding="#{carForm}">
+			<p:fieldset id="toDoFieldSet" legend="To Do">
+				<p:dataGrid id="toDoTaches" var="tache"
+					value="#{detailsTacheBean.tacheToDo}" columns="3">
+					<p:panel id="pnl" header="#{tache.nomTache}"
+						style="text-align:center">
+						<h:panelGrid columns="1" style="width:100%">
+							<p:outputLabel value="#{tache.descriptionTache}" />
+						</h:panelGrid>
+					</p:panel>
+					<p:draggable for="pnl" revert="true" handle=".ui-panel-titlebar"
+						stack=".ui-panel" />
+				</p:dataGrid>
+			</p:fieldset>
+
+			<p:fieldset id="inProgressFieldSet" legend="In Progress">
+
+				<p:dataGrid id="inProgressTaches" var="tache"
+					value="#{detailsTacheBean.tacheInProgress}" columns="3">
+
+					<p:panel id="pnl2" header="#{tache.nomTache}"
+						footer="#{tache.nomEmploye}" style="text-align:center">
+						<h:panelGrid columns="1" onclick="PF('dlg2').show()"
+							style="width:100%">
+							<p:outputLabel value="#{tache.descriptionTache}" />
+							<p:commandLink action="#{detailsTacheBean.showDialog}"
+								value="Ajouter le temps">
+								<f:setPropertyActionListener target="#{detailsTacheBean.tache}" value="#{tache}" />
+								</p:commandLink>
+						</h:panelGrid>
+					</p:panel>
+					<p:draggable for="pnl2" revert="true" handle=".ui-panel-titlebar"
+						stack=".ui-panel" />
+				</p:dataGrid>
+
+			</p:fieldset>
+
+			<p:droppable for="inProgressFieldSet" tolerance="touch"
+				activeStyleClass="ui-state-highlight" datasource="toDoTaches"
+				onDrop="handleDrop">
+
+				<p:ajax listener="#{detailsTacheBean.onTacheDrop}"
+					update="inProgressTaches toDoTaches " form="#{carForm.clientId}" />
+			</p:droppable>
+
+
+
+			<p:fieldset id="doneFieldSet" legend="Done">
+				<p:dataGrid id="doneTaches" var="tache"
+					value="#{detailsTacheBean.tacheDone}" columns="3">
+					<p:panel id="pnl3" header="#{tache.nomTache}"
+						footer="#{tache.nomEmploye}" style="text-align:center">
+						<h:panelGrid columns="1" style="width:100%">
+							<p:outputLabel value="#{tache.descriptionTache}" />
+						</h:panelGrid>
+					</p:panel>
+
+				</p:dataGrid>
+			</p:fieldset>
+
+			<p:droppable for="doneFieldSet" tolerance="touch"
+				activeStyleClass="ui-state-highlight" datasource="inProgressTaches"
+				onDrop="handleDrop">
+
+				<p:ajax listener="#{detailsTacheBean.onTacheToDoneDrop}"
+					update="inProgressTaches doneTaches " form="#{carForm.clientId}" />
+			</p:droppable>
+
+			<p:dialog header="Modal Dialog" widgetVar="dlg2" height="180" appendTo=":carForm">
+				<p:panelGrid columns="2"  styleClass="ui-noborder">
+					<h:outputText value="Nombre d'heures" />
+					<p:inputText required="true" value="#{detailsTacheBean.nbrHeures}"></p:inputText>
+
+					<h:outputText value="Description" />
+					<p:inputTextarea value="#{detailsTacheBean.description}"></p:inputTextarea>
+					
+					<p:commandButton value="Valider" action="#{detailsTacheBean.validerDetailsTache}" oncomplete="PF('dlg2').hide()"></p:commandButton>
+				</p:panelGrid>
+			</p:dialog>
+		</h:form>
+
+
+		<!-- naviger dune page a une autre  button delete  -->
+	</ui:define>
+
+</ui:composition>
+

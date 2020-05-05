@@ -1,0 +1,51 @@
+
+
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/template.xhtml">
+
+	<ui:param name="page_name" value="Accueil" />
+
+		<ui:define name="content">
+		<!-- BEGIN : TP1 JSF Introduction Login -->
+		<h:panelGroup>
+			<h:form>
+				<h:outputText
+					value="Bonjour #{loginBean.user.prenom} #{loginBean.user.nom}" />
+					| 
+				<h:commandLink value="Déconnexion" action="#{loginBean.doLogout()}" />
+				<br />
+				<h:outputText
+					value="Vous êtes dans l'espace pour Administrateur" />
+
+			</h:form>
+		</h:panelGroup>
+		<!-- END : TP1 JSF Introduction Login -->
+
+
+		<!-- BEGIN : TP3 JSF List Employes -->
+		<br />
+		<h:panelGroup columns="2">
+			<h:form>
+				<h:dataTable value="#{projectTechnicalBean.getProjectsByUser(loginBean.user.id)}" var="project"
+					border="1">
+					<h:column>
+						<f:facet name="header"><h:outputText value="Libellé" /></f:facet>
+						<h:outputText value="sssssss" />
+					</h:column>
+					<h:column>
+						<f:facet name="header"><h:outputText value="Decription" /></f:facet>
+						<h:outputText value="mmmm" />
+					</h:column>
+				</h:dataTable>
+			</h:form>
+		</h:panelGroup>
+		<!-- END :  TP3 JSF List Employes -->
+
+
+	</ui:define>
+
+</ui:composition>

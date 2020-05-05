@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15717886444700" configfile="/Advyteam-web/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="754" id="pf15721757402852" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf15721757402853 pf15721921385285 pf15721921385286 pf15724433468219" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="xhtml/farah.xhtml" x="338" y="178" id="pf15721757402854" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf15721757402853" path="/xhtml/farah.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="xhtml/Ajoutprojet.xhtml" x="338" y="562" id="pf15721921385287" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf15721921385285" path="/xhtml/Ajoutprojet.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="xhtml/detailsProjet.xhtml" x="338" y="946" id="pf15721921385288" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf15721921385286" path="/xhtml/detailsProjet.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="xhtml/gestionTaches/taches.xhtml" x="338" y="1330" id="pf157244334682110" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf15724433468219" path="/xhtml/gestionTaches/taches.xhtml"/>
+  <links id="pf15721757402853" target="pf15721757402854" source="pf15721757402852" outcome="goToFarah"/>
+  <links id="pf15721921385285" target="pf15721921385287" source="pf15721757402852" outcome="goToAddProject"/>
+  <links id="pf15721921385286" target="pf15721921385288" source="pf15721757402852" outcome="goToDetailsProjet"/>
+  <links id="pf15724433468219" target="pf157244334682110" source="pf15721757402852" outcome="goToDetailsTaches"/>
+</pageflow:Pageflow>

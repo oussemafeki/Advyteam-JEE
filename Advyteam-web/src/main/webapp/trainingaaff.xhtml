@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtmll/DTD/xhtmll-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="title">
+		<title>Aff</title>
+	</ui:define>
+
+	<ui:define name="content">
+
+
+
+
+
+		<section class="section-container"> <!-- Page content--> 
+			<h:panelGroup columns="2">
+			<h:form>
+				<h:dataTable value="#{trainingBean.trainings}" var="training"
+					border="1">
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="name" />
+						</f:facet>
+						<h:outputText value="#{training.name}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Date" />
+						</f:facet>
+						<h:outputText value="#{training.date}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Nbplace" />
+						</f:facet>
+						<h:outputText value="#{training.nbplace}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Description" />
+						</f:facet>
+						<h:outputText value="#{training.description}" />
+					</h:column>
+				
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Action" />
+						</f:facet>
+						<h:commandButton action="#{trainingBean.removeTraining(training.id)}"
+							value="Supprimer" />
+							
+					
+					</h:column>
+					
+						
+					
+				</h:dataTable>
+			</h:form>
+		</h:panelGroup>
+		 </section>
+
+	</ui:define>
+</ui:composition>
+
+

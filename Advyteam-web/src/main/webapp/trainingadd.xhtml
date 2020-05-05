@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtmll/DTD/xhtmll-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+
+	xmlns:p="http://primefaces.org/ui"
+	   
+	  
+	
+	template="/WEB-INF/template/template.xhtml">
+
+	  
+	<ui:define name="title">
+		<title>Add</title>
+	</ui:define>
+
+	<ui:define name="content">
+
+
+
+
+
+		<section class="section-container"> <!-- Page content--> <h:form>
+			<div class="card-body">
+									<div class="basic-form">
+
+										<h:form>
+										
+											<label>Name</label>
+											<div class="form-group">
+												<h:inputText value="#{trainingBean.name}"
+													type="text" class="form-control input-flat"
+													placeholder="Input Flat" />
+
+											</div>
+	<p:fieldset>
+					<h:panelGroup class="form-group row">
+						<label class="col-md-3 col-form-label">Begining Date</label>
+						<h:panelGroup class="col-md-5">
+							<h:inputText id="date" value="#{trainingBean.date}" size="20"
+								required="true" label="Receipt Date">
+
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</h:inputText>
+						</h:panelGroup>
+					</h:panelGroup>
+				</p:fieldset>
+	
+											<label>Description</label>
+											<div class="form-group">
+												<h:inputText value="#{trainingBean.description}"
+													type="text" class="form-control input-flat"
+													placeholder="Input Flat" />
+
+											</div>
+											<label>nbplace</label>
+											<div class="form-group">
+												<h:inputText value="#{trainingBean.nbplace}"
+													type="text" class="form-control input-flat"
+													placeholder="Input Flat" />
+
+											</div>
+											
+										
+									
+											
+											<br></br>
+											<h:commandButton value="Add A new training" id="submit"
+												class="btn btn-w-md btn-round btn-success"
+												action="#{trainingBean.addTraining()}" />
+										</h:form>
+
+									</div>
+								</div>
+				
+		</h:form> </section>
+ 
+ 
+	</ui:define>
+</ui:composition>
+
+

@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtmll/DTD/xhtmll-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:f="http://java.sun.com/jsf/core"
+  template="/WEB-INF/template/template.xhtml">
+
+  <ui:define name="title">
+    <title>Evals</title>
+  </ui:define>
+
+  <ui:define name="content">
+
+    <!-- top navbar-->
+
+    <aside class="offsidebar d-none"> <!-- START Off Sidebar (right)-->
+    <nav>
+  
+  <h:panelGroup columns="2">
+<h:panelGroup columns="2"><h:form>
+
+
+<br></br><br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+
+
+</h:form></h:panelGroup>
+
+<h:form>
+
+</h:form>
+</h:panelGroup>
+
+
+  
+    </nav><!-- END Off Sidebar (right)--> </aside>
+    <!-- Main section-->
+    <section class="section-container"> <!-- Page content-->
+    <style type="text/css">           
+            .top {
+                filter:alpha(opacity=80);
+                opacity:0.8;
+                padding:50px 0 0 50px;
+        z-index: 1000;
+            }
+        </style>
+     
+ 
+ 
+ 
+
+           <div class="col-xl-4 col-lg-6">
+                  <!-- START card-->
+
+
+
+                       
+  <h:panelGroup columns="2">
+<h:panelGroup columns="2"><h:form>
+<center><table style=" position: relative;
+    font-size:20px;
+    height: auto;
+    padding: 10px;
+    
+    }">
+<tr><td><h:outputText value="Login (Email)"></h:outputText></td><td><h:inputText
+value="#{loginBean.login}"></h:inputText></td></tr>
+<tr><td><h:outputText value="Mot de Passe"></h:outputText></td>
+<td><h:inputSecret value="#{loginBean.password}"></h:inputSecret></td></tr>
+<tr><td><h:outputText value="Nom"></h:outputText></td>
+<td><h:inputText value="#{loginBean.nom}"></h:inputText></td></tr>
+<tr><td><h:outputText value="Prenom"></h:outputText></td>
+<td><h:inputText value="#{loginBean.prenom}"></h:inputText></td></tr>
+<tr><td><h:outputText value="Actif / Inactif"></h:outputText></td>
+<td><h:selectBooleanCheckbox value="#{loginBean.isActif}"></h:selectBooleanCheckbox></td></tr>
+
+
+
+<tr><td><h:outputText value="Role"></h:outputText></td>
+<td><h:selectOneMenu value="#{loginBean.role}">
+<f:selectItem itemLabel="Choisir Role" itemValue=""/>
+<f:selectItems value="#{data.roles}" />
+</h:selectOneMenu></td></tr>
+
+
+<tr><td colspan="2"> <h:commandButton value="Ajouter Employé"
+action="#{loginBean.addEmploye()}" style="width: 180px;
+  
+  height: 35px;
+  cursor: pointer;
+  background:#339FFF;
+  border: 1px solid #91C9FF;
+  outline: none;
+  transition: 1s ease-in-out;
+   color: white;
+   font-weight: bold;"/></td>
+
+<td><h:commandButton value="Mettre A jour Employé"
+action="#{loginBean.updateEmploye()}"  style="width: 180px;
+  
+  height: 35px;
+  cursor: pointer;
+  background:#339FFF;
+  border: 1px solid #91C9FF;
+  outline: none;
+  transition: 1s ease-in-out;
+   color: white;
+   font-weight: bold;"/></td></tr>
+
+</table>
+</center>
+
+<br></br><br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+
+
+</h:form></h:panelGroup>
+
+<h:form>
+<center>
+<h:dataTable value="#{loginBean.employes}" var="employe" border="1">
+<h:column><f:facet name="header"><h:outputText value="Login" /></f:facet>
+<h:outputText value="#{employe.email}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Prenom" /></f:facet>
+<h:outputText value="#{employe.prenom}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Nom" /></f:facet>
+<h:outputText value="#{employe.nom}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Role" /></f:facet>
+<h:outputText value="#{employe.role}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Actif" /></f:facet>
+<h:outputText value=" #{employe.isActif == true ? 'Oui' : 'Non'}" /></h:column>
+
+<h:column>
+<f:facet name="header"><h:outputText value="Action" /></f:facet>
+<h:commandButton action="#{loginBean.removeEmploye(employe.id)}"
+value="Supprimer"   style="width: 180px;
+  
+  height: 20px;
+  cursor: pointer;
+  background:#339FFF;
+  border: 1px solid #91C9FF;
+  outline: none;
+  transition: 1s ease-in-out;
+   color: white;
+   font-weight: bold;"/>
+<h:commandButton action="#{loginBean.displayEmploye(employe)}"
+value=
+"Afficher"  style="width: 180px;
+  
+  height: 20px;
+  cursor: pointer;
+  background:#33cc33;
+  border: 1px solid #91C9FF;
+  outline: none;
+  transition: 1s ease-in-out;
+   color: white;
+   font-weight: bold;"/>
+
+</h:column>
+
+
+
+</h:dataTable>
+</center>
+</h:form>
+</h:panelGroup>
+                 
+               </div>
+               
+             
+                   
+    
+    </section>
+       
+    <!-- Page footer-->
+    <footer class="footer-container"> <span>&copy; 2019 -
+      Advyteam</span></footer>
+
+  </ui:define>
+
+
+</ui:composition>

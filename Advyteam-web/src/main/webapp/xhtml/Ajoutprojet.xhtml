@@ -1,0 +1,49 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template/template.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+	<ui:define name="content">
+
+		<style>
+</style>
+		<h:form>
+			<h:panelGrid id="grid" cellpadding="5" columns="2"
+				style="margin-bottom:10px">
+				<f:facet name="header">
+					<p:messages id="msgs" />
+				</f:facet>
+
+				<p:outputLabel for="title" value="project title:" />
+				<p:inputText id="title" value="#{ajoutProjetBean.title}" required="true" requiredMessage="title of project is required."/>
+
+				<p:outputLabel for="description" value="project decription:" />
+				<p:inputText id="description" value="#{ajoutProjetBean.description}"
+					required="true" requiredMessage="description of project is required." />
+
+
+				<p:outputLabel for="employes" value="Employés:" />
+				<p:selectCheckboxMenu id="employes"
+					value="#{ajoutProjetBean.selectedUsers}" label="Employés"
+					multiple="true" converter="entityConverter" filter="true" filterMatchMode="startsWith"
+					panelStyle="width:250px">
+					<f:selectItems value="#{ajoutProjetBean.users}" var="user" itemLabel="#{user.nom} #{user.nom}" 
+					itemValue="#{user}" />
+				</p:selectCheckboxMenu>
+			</h:panelGrid>
+
+			<h:panelGrid columns="6" cellpadding="5">
+				<p:commandButton value="Add"  icon="fa fa-plus" id="btnAll" update="grid"
+					action="#{ajoutProjetBean.saveproject}" />
+
+				<h:link rel="alternate" hreflang="en-us"
+					outcome="/xhtml/farah.xhtml">All projects</h:link>
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+
+

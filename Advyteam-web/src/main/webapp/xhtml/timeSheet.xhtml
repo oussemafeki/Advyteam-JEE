@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template/template.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+	<ui:define name="content">
+		<h:form>
+			<p:outputLabel for="popup" value="Date :" />
+			<p:calendar id="popup" value="#{timeSheetBean.date}">
+				<p:ajax event="dateSelect" listener="#{timeSheetBean.onDateSelect}"
+					update="timesheetDataTable" />
+			</p:calendar>
+
+
+			<p:dataTable id="timesheetDataTable" var="timeSheet"
+				value="#{timeSheetBean.listTimeSheetDtos}" paginator="true"
+				rows="10"
+				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10">
+
+
+				<p:column headerText="Employés">
+					<h:outputText value="#{timeSheet.nomEmploye}" />
+				</p:column>
+
+				<p:column headerText="Nombre heures">
+					<h:outputText value="#{timeSheet.nbrHeures}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+
+
